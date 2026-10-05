@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Good Night, Kesayanganku 🌙🤍</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:#080b24;color:#fff;overflow:hidden;
+}
+.sky{
+  position:fixed;inset:0;
+  background:
+   radial-gradient(circle at 20% 20%,rgba(130,150,255,.18),transparent 28%),
+   radial-gradient(circle at 80% 70%,rgba(255,150,220,.12),transparent 30%),
+   linear-gradient(160deg,#07091d,#12183d 55%,#080a20);
+}
+.stars,.stars:before,.stars:after{
+ position:absolute;inset:0;content:"";pointer-events:none;
+ background-image:
+ radial-gradient(circle,rgba(255,255,255,.9) 1px,transparent 1.5px),
+ radial-gradient(circle,rgba(255,255,255,.6) 1px,transparent 1.5px);
+ background-size:83px 83px,137px 137px;
+ background-position:10px 18px,55px 70px;
+ animation:twinkle 4s ease-in-out infinite alternate;
+}
+.stars:before{opacity:.55;transform:scale(1.15);animation-delay:1s}
+.stars:after{opacity:.35;transform:scale(.9);animation-delay:2s}
+@keyframes twinkle{to{opacity:.45;transform:translateY(4px)}}
+
+.moon{
+ position:absolute;right:11%;top:8%;width:82px;height:82px;border-radius:50%;
+ background:#fff5c7;box-shadow:0 0 35px rgba(255,245,199,.45);
+}
+.moon:after{
+ content:"";position:absolute;left:22px;top:10px;width:76px;height:76px;border-radius:50%;
+ background:#0c1030;
+}
+.cloud{position:absolute;background:rgba(255,255,255,.07);border-radius:50px;width:180px;height:28px;bottom:9%;left:-30px;filter:blur(1px)}
+.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%;width:65px;height:65px;bottom:4px}
+.cloud:before{left:32px}.cloud:after{left:92px;width:48px;height:48px}
+
+.app{position:relative;width:100%;height:100%;z-index:2}
+.page{
+ position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+ padding:28px 18px 90px;opacity:0;pointer-events:none;transform:translateX(30px) scale(.98);
+ transition:opacity .45s ease,transform .45s ease;overflow:auto;
+}
+.page.active{opacity:1;pointer-events:auto;transform:none}
+.card{
+ width:min(440px,94vw);max-height:calc(100vh - 120px);overflow:auto;
+ padding:28px 22px;border:1px solid rgba(255,255,255,.16);
+ border-radius:30px;background:rgba(14,18,55,.72);backdrop-filter:blur(13px);
+ box-shadow:0 20px 70px rgba(0,0,0,.35);text-align:center;
+}
+h1{font-size:clamp(30px,8vw,46px);line-height:1.05;margin:8px 0 15px}
+h2{font-size:27px;margin-bottom:14px}
+p{line-height:1.7;color:#e9eaff}
+.badge{display:inline-block;padding:7px 13px;border-radius:99px;background:rgba(255,255,255,.1);font-size:13px;margin-bottom:12px}
+button{
+ border:0;border-radius:999px;padding:13px 20px;margin-top:18px;
+ background:linear-gradient(135deg,#ff8fcf,#a991ff);color:white;font-weight:800;
+ font-size:15px;cursor:pointer;box-shadow:0 8px 25px rgba(169,145,255,.25);
+ transition:.2s;
+}
+button:active{transform:scale(.95)}
+.secondary{background:rgba(255,255,255,.1);box-shadow:none}
+.nav{
+ position:fixed;z-index:10;bottom:17px;left:50%;transform:translateX(-50%);
+ display:flex;gap:10px;background:rgba(10,12,35,.72);padding:8px;border-radius:99px;
+ backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12)
+}
+.nav button{margin:0;padding:10px 15px}
+.dots{position:fixed;top:17px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:6px}
+.dot{width:7px;height:7px;border-radius:50%;background:#ffffff45;transition:.3s}
+.dot.active{width:22px;border-radius:10px;background:#fff}
+
+.bear{font-size:82px;animation:sleep 2.2s ease-in-out infinite}
+@keyframes sleep{50%{transform:translateY(5px) rotate(-2deg)}}
+.zz{font-size:28px;animation:float 1.7s infinite}
+@keyframes float{50%{transform:translateY(-10px);opacity:.5}}
+
+.type{min-height:130px;text-align:left;background:rgba(255,255,255,.05);padding:18px;border-radius:20px}
+.cursor{display:inline-block;width:2px;height:18px;background:#fff;animation:blink .7s infinite}
+@keyframes blink{50%{opacity:0}}
+
+.polaroids{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:15px 0}
+.polaroid{
+ width:115px;height:145px;background:#fff;padding:7px 7px 27px;color:#222;
+ transform:rotate(-4deg);box-shadow:0 8px 18px #0005;animation:photoIn .8s both;
+}
+.polaroid:nth-child(2){transform:rotate(5deg);animation-delay:.15s}
+.polaroid:nth-child(3){transform:rotate(-2deg);animation-delay:.3s}
+.polaroid .fake{
+ width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+ background:linear-gradient(145deg,#ffd6ec,#cfd4ff);font-size:43px
+}
+@keyframes photoIn{from{opacity:0;transform:translateY(30px) rotate(0)}to{opacity:1}}
+
+.choices{display:grid;gap:10px;margin-top:16px}
+.choice{width:100%;margin:0;background:rgba(255,255,255,.08);box-shadow:none}
+.result{min-height:40px;margin-top:15px;font-weight:700;color:#ffd8ef}
+
+.envelope{font-size:70px;animation:float 2s infinite}
+.letter{text-align:left;background:#fffaf0;color:#352d38;padding:22px;border-radius:18px;line-height:1.8;box-shadow:0 12px 30px #0004}
+.letter p{color:#352d38}
+
+.dream{font-size:64px;animation:float 2s infinite}
+.finalHeart{font-size:78px;animation:heart 1s infinite}
+@keyframes heart{50%{transform:scale(1.15)}}
+
+.heart{
+ position:fixed;bottom:-30px;font-size:20px;z-index:20;pointer-events:none;
+ animation:rise 3.5s linear forwards;
+}
+@keyframes rise{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+
+@media(max-height:650px){
+ .card{padding:20px 17px}.page{padding-bottom:75px}.moon{width:62px;height:62px}
+}
+</style>
+</head>
+<body>
+<div class="sky"><div class="stars"></div><div class="moon"></div><div class="cloud"></div></div>
+
+<div class="app">
+  <div class="dots" id="dots"></div>
+
+  <section class="page active">
+    <div class="card">
+      <div class="badge">🌙 pesan rahasia sebelum tidur</div>
+      <div style="font-size:65px">🌌</div>
+      <h1>Good Night,<br>Kesayanganku 🤍</h1>
+      <p>Sebelum kamu merem, ada sedikit pesan dari seseorang yang sayang banget sama kamu 🥺</p>
+      <button onclick="nextPage()">Buka pesan 💌</button>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <div class="bear">🧸</div><div class="zz">Z z z...</div>
+      <h2>Hari ini capek yaa?</h2>
+      <div class="type" id="typeBox"></div>
+      <button onclick="nextPage()">Aku mau lanjut 🥺</button>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <div style="font-size:55px">🎮</div>
+      <h2>Ujian terakhir sebelum tidur 😤</h2>
+      <p>Siapa yang paling sayang kamu?</p>
+      <div class="choices">
+        <button class="choice" onclick="answer()">A. Aku 😎</button>
+        <button class="choice" onclick="answer()">B. Tetap aku 😌</button>
+        <button class="choice" onclick="answer()">C. Jelas aku lah 😭</button>
+      </div>
+      <div class="result" id="result"></div>
+      <button class="secondary" onclick="nextPage()">Lanjut ➜</button>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <div class="badge">📸 night memories</div>
+      <h2>Sebelum tidur...</h2>
+      <div class="polaroids">
+        <div class="polaroid"><div class="fake">🥰</div></div>
+        <div class="polaroid"><div class="fake">💗</div></div>
+        <div class="polaroid"><div class="fake">🫶</div></div>
+      </div>
+      <p>Semoga suatu hari nanti kita punya lebih banyak kenangan yang bisa kita lihat lagi sambil senyum-senyum sendiri.</p>
+      <button onclick="nextPage()">Ada surat lagi 💌</button>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <div class="envelope">💌</div>
+      <h2>Surat tengah malam</h2>
+      <div class="letter">
+        <p>
+          Makasih yaa udah hadir di hidup aku. 🤍<br><br>
+          Kalau hari ini terasa berat, istirahat dulu. Kamu nggak harus selalu kuat setiap saat.
+          Semoga besok jadi hari yang lebih baik dan kamu bangun dengan hati yang lebih ringan. 🌷<br><br>
+          Jangan lupa senyum sebelum merem, karena ada seseorang di sini yang selalu senang kalau kamu bahagia. 🥺
+        </p>
+      </div>
+      <button onclick="nextPage()">Pejamkan mata 🌙</button>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <div class="dream">😴</div>
+      <h2>Saatnya tidur...</h2>
+      <p>Tarik napas pelan, rebahkan kepala, dan istirahat yaa.</p>
+      <button onclick="sleepMode()">😴 Aku siap tidur</button>
+      <div id="sleepMsg" style="margin-top:16px;line-height:1.8"></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <div class="finalHeart">🤍</div>
+      <h1>Good Night,<br>Princesku 👑</h1>
+      <p>Mimpi indah yaa... jangan mimpiin orang lain 😤<br><b>Mimpiin aku aja cukup 😭❤️</b></p>
+      <button onclick="hug()">🫂 Peluk virtual dulu</button>
+      <div id="hugMsg" style="margin-top:15px;font-weight:800"></div>
+    </div>
+  </section>
+</div>
+
+<div class="nav">
+  <button class="secondary" onclick="prevPage()">←</button>
+  <button class="secondary" onclick="nextPage()">→</button>
+</div>
+
+<script>
+let current=0;
+const pages=[...document.querySelectorAll('.page')];
+const dots=document.getElementById('dots');
+pages.forEach((_,i)=>{
+ const d=document.createElement('span'); d.className='dot'+(i===0?' active':''); dots.appendChild(d);
+});
+const dotEls=[...dots.children];
+
+function showPage(n){
+ current=Math.max(0,Math.min(pages.length-1,n));
+ pages.forEach((p,i)=>p.classList.toggle('active',i===current));
+ dotEls.forEach((d,i)=>d.classList.toggle('active',i===current));
+ if(current===1) typeMessage();
+}
+function nextPage(){showPage(current+1)}
+function prevPage(){showPage(current-1)}
+
+let typed=false;
+function typeMessage(){
+ if(typed)return; typed=true;
+ const box=document.getElementById('typeBox');
+ const text="Kalau hari ini bikin kamu capek, sekarang waktunya istirahat yaa. Jangan mikirin hal-hal yang bikin pusing dulu. Kamu udah melakukan yang terbaik hari ini. 🤍";
+ let i=0;
+ const timer=setInterval(()=>{
+   box.innerHTML=text.slice(0,i++)+'<span class="cursor"></span>';
+   if(i>text.length){clearInterval(timer);box.innerHTML=text}
+ },28);
+}
+
+function answer(){
+ document.getElementById('result').textContent="BENAR SEMUA 😭❤️ Kamu nggak punya pilihan lain selain aku wkwkwk.";
+ for(let i=0;i<5;i++)setTimeout(makeHeart,i*120);
+}
+function makeHeart(){
+ const h=document.createElement('div');h.className='heart';
+ h.textContent=['🤍','💗','💖','✨','🌙'][Math.floor(Math.random()*5)];
+ h.style.left=Math.random()*100+'vw';h.style.fontSize=(16+Math.random()*18)+'px';
+ document.body.appendChild(h);setTimeout(()=>h.remove(),3600);
+}
+function sleepMode(){
+ const msg=document.getElementById('sleepMsg');
+ msg.innerHTML="🌙 Lampu malam dimatikan...<br><b>Good night, kesayanganku. 🤍</b>";
+ for(let i=0;i<12;i++)setTimeout(makeHeart,i*100);
+ setTimeout(()=>nextPage(),1700);
+}
+function hug(){
+ document.getElementById('hugMsg').textContent="🫂🫂🫂 Peluknya jangan dilepas dulu yaa 🥺🤍";
+ for(let i=0;i<25;i++)setTimeout(makeHeart,i*70);
+}
+</script>
+</body>
+</html>
